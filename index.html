@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Back to the Future</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 2px 2px 5px #000000;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        .scenario-button {
+            background-color: #ff5733;
+            color: white;
+        }
+        .characters-button {
+            background-color: #337aff;
+            color: white;
+        }
+        .answer-button {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+    <script>
+        const data = {
+            "Humans live on Mars.": {
+                "Leonardo da Vinci": "To live on Mars, humans must master engineering, just as I designed flying machines before their time. Science and creativity will shape the first Martian city. But beware—without wisdom, technology alone is dangerous.",
+                "Winston Churchill": "Mars is a new frontier, but it must be secured wisely. Humanity’s expansion must be governed by laws, democracy, and stability—or else it will repeat Earth’s mistakes."
+            },
+            "AI runs the world.": {
+                "Karl Marx": "If AI controls the means of production, who owns it? If the people, it will bring equality. If the corporations, it will enslave us all.",
+                "Nikola Tesla": "AI must serve humanity, not replace it. But beware, if programmed without ethics, it will not see the difference."
+            }
+        };
+
+        let currentScenario = "";
+        
+        function generateScenario() {
+            const scenarios = Object.keys(data);
+            currentScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
+            document.getElementById("scenario").innerText = `Scenario: ${currentScenario}`;
+            generateCharacters();
+        }
+
+        function generateCharacters() {
+            if (!currentScenario) return;
+            const characterEntries = Object.entries(data[currentScenario]);
+            const shuffledCharacters = characterEntries.sort(() => 0.5 - Math.random()).slice(0, 2);
+            
+            document.getElementById("character1").innerText = `${shuffledCharacters[0][0]}: ${shuffledCharacters[0][1]}`;
+            document.getElementById("character2").innerText = `${shuffledCharacters[1][0]}: ${shuffledCharacters[1][1]}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>⚡ Back to the Future ⚡</h1>
+    <p>In this activity, as soon as you click on the button, you will be randomly assigned a scenario about a future historical outcome and the views prominent European historical figures might have had on it if they were alive (based on evidence of their beliefs). Study their opinions and then write your own view, agreeing or disagreeing with them. Make sure you provide arguments.</p>
+    <button class="scenario-button" onclick="generateScenario()">🎭 Generate Scenario</button>
+    <p id="scenario"></p>
+    <p id="character1"></p>
+    <p id="character2"></p>
+    <br>
+    <a class="answer-button" href="https://docs.google.com/forms/d/e/1FAIpQLScPhob6wnSo_fW6EE9ppbQ-QzWGOdSGi1NDqKczQ9TlglNwUQ/viewform?usp=dialog" target="_blank">
+        📝 Write Your Own View
+    </a>
+</body>
+</html>
