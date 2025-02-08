@@ -37,11 +37,10 @@
         .answer-button {
             background-color: #28a745;
             color: white;
-        }
-        .creator {
-            color: magenta;
-            font-size: 20px;
-            font-weight: bold;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
         }
     </style>
     <script>
@@ -53,11 +52,23 @@
             "AI runs the world.": {
                 "Karl Marx": "If AI controls the means of production, who owns it? If the people, it will bring equality. If the corporations, it will enslave us all.",
                 "Nikola Tesla": "AI must serve humanity, not replace it. But beware, if programmed without ethics, it will not see the difference."
+            },
+            "A new type of government replaces democracy.": {
+                "Napoleon Bonaparte": "Governments rise and fall, but the strongest rulers shape the world. If democracy fails, the strongest must lead.",
+                "Marie Curie": "Whatever system comes next must support science and knowledge. A government that silences discovery silences progress."
+            },
+            "People only use pictures and emojis instead of words.": {
+                "William Shakespeare": "To banish words is to banish poetry, love, and passion. A world without words is a world without true expression!",
+                "Charles Darwin": "Language evolves like species do. If people find images more effective, perhaps this is simply the next step in communication."
+            },
+            "People live in virtual reality instead of the real world.": {
+                "Lenin": "The ruling class will use virtual worlds to distract workers from reality. It is a new form of control—keeping people from demanding real change.",
+                "Curie": "Living in a false world will make people forget real science, real progress, and real medicine. The virtual world cannot cure disease or explore the stars."
             }
         };
 
         let currentScenario = "";
-        
+
         function generateScenario() {
             const scenarios = Object.keys(data);
             currentScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
@@ -69,15 +80,13 @@
             if (!currentScenario) return;
             const characterEntries = Object.entries(data[currentScenario]);
             const shuffledCharacters = characterEntries.sort(() => 0.5 - Math.random()).slice(0, 2);
-            
+
             document.getElementById("character1").innerText = `${shuffledCharacters[0][0]}: ${shuffledCharacters[0][1]}`;
             document.getElementById("character2").innerText = `${shuffledCharacters[1][0]}: ${shuffledCharacters[1][1]}`;
         }
     </script>
 </head>
 <body>
-    <h2>Created by Panagiotis Domvros 2025 (CC BY-NC)</h2>
-    <h2 class="creator">Created by Panagiotis Domvros 2025 (CC BY-NC)</h2>
     <h1>⚡ Back to the Future ⚡</h1>
     <p>In this activity, as soon as you click on the button, you will be randomly assigned a scenario about a future historical outcome and the views prominent European historical figures might have had on it if they were alive (based on evidence of their beliefs). Study their opinions and then write your own view, agreeing or disagreeing with them. Make sure you provide arguments.</p>
     <button class="scenario-button" onclick="generateScenario()">🎭 Generate Scenario</button>
