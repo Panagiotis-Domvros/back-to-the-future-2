@@ -30,10 +30,6 @@
             background-color: #ff5733;
             color: white;
         }
-        .characters-button {
-            background-color: #337aff;
-            color: white;
-        }
         .answer-button {
             background-color: #28a745;
             color: white;
@@ -47,23 +43,43 @@
         const data = {
             "Humans live on Mars.": {
                 "Leonardo da Vinci": "To live on Mars, humans must master engineering, just as I designed flying machines before their time. Science and creativity will shape the first Martian city. But beware—without wisdom, technology alone is dangerous.",
-                "Winston Churchill": "Mars is a new frontier, but it must be secured wisely. Humanity’s expansion must be governed by laws, democracy, and stability—or else it will repeat Earth’s mistakes."
+                "Winston Churchill": "Mars is a new frontier, but it must be secured wisely. Humanity’s expansion must be governed by laws, democracy, and stability—or else it will repeat Earth’s mistakes.",
+                "Marie Curie": "Mars presents extreme radiation challenges. We must first ensure human safety through scientific advancements before colonization."
             },
             "AI runs the world.": {
                 "Karl Marx": "If AI controls the means of production, who owns it? If the people, it will bring equality. If the corporations, it will enslave us all.",
-                "Nikola Tesla": "AI must serve humanity, not replace it. But beware, if programmed without ethics, it will not see the difference."
+                "Nikola Tesla": "AI must serve humanity, not replace it. But beware, if programmed without ethics, it will not see the difference.",
+                "Napoleon Bonaparte": "An AI leader must understand strategy. But without human ambition and adaptability, it will fail in true leadership."
             },
             "A new type of government replaces democracy.": {
                 "Napoleon Bonaparte": "Governments rise and fall, but the strongest rulers shape the world. If democracy fails, the strongest must lead.",
-                "Marie Curie": "Whatever system comes next must support science and knowledge. A government that silences discovery silences progress."
+                "Marie Curie": "Whatever system comes next must support science and knowledge. A government that silences discovery silences progress.",
+                "Charles Darwin": "A government that evolves to meet the needs of its people will survive. Stagnation leads to downfall."
             },
             "People only use pictures and emojis instead of words.": {
                 "William Shakespeare": "To banish words is to banish poetry, love, and passion. A world without words is a world without true expression!",
-                "Charles Darwin": "Language evolves like species do. If people find images more effective, perhaps this is simply the next step in communication."
+                "Charles Darwin": "Language evolves like species do. If people find images more effective, perhaps this is simply the next step in communication.",
+                "Winston Churchill": "Words inspire. A world without words is a world without great speeches, without history, without leadership."
             },
             "People live in virtual reality instead of the real world.": {
-                "Lenin": "The ruling class will use virtual worlds to distract workers from reality. It is a new form of control—keeping people from demanding real change.",
-                "Curie": "Living in a false world will make people forget real science, real progress, and real medicine. The virtual world cannot cure disease or explore the stars."
+                "Vladimir Lenin": "The ruling class will use virtual worlds to distract workers from reality. It is a new form of control—keeping people from demanding real change.",
+                "Marie Curie": "Living in a false world will make people forget real science, real progress, and real medicine. The virtual world cannot cure disease or explore the stars.",
+                "Nikola Tesla": "Technology can create wonders, but it should not replace reality. A world of light without substance is just a shadow."
+            },
+            "The first war between Earth and a space colony.": {
+                "Leonardo da Vinci": "A tragic but predictable event. War follows humans wherever they go, but perhaps in space, we can learn from history and avoid destruction.",
+                "Karl Marx": "War is always about power. Will the new colony fight for freedom, or will it be controlled by corporate masters?",
+                "Napoleon Bonaparte": "Colonies always seek freedom. If Earth wishes to rule space, it must do so with strength and strategy."
+            },
+            "Science discovers a way to extend human life indefinitely.": {
+                "Charles Darwin": "Without natural death, evolution would halt. Humanity would stagnate, unable to adapt or improve.",
+                "Nikola Tesla": "Science should always push the limits of the possible. But will endless life bring wisdom, or merely endless greed?",
+                "Winston Churchill": "A man who lives forever must still find purpose. Without duty, without service, immortality is nothing but an empty eternity."
+            },
+            "Nations are replaced by mega-corporations.": {
+                "Karl Marx": "This is capitalism’s final stage. If companies replace governments, the workers will be at their mercy, enslaved to corporate masters.",
+                "Marie Curie": "Will science exist to serve humanity, or to serve the corporations? Knowledge must not be owned—it must be shared.",
+                "Winston Churchill": "A nation’s duty is to its people. A corporation’s duty is to its shareholders. If the latter rule, who will protect the former?"
             }
         };
 
@@ -79,20 +95,22 @@
         function generateCharacters() {
             if (!currentScenario) return;
             const characterEntries = Object.entries(data[currentScenario]);
-            const shuffledCharacters = characterEntries.sort(() => 0.5 - Math.random()).slice(0, 2);
+            const shuffledCharacters = characterEntries.sort(() => 0.5 - Math.random()).slice(0, 3);
 
             document.getElementById("character1").innerText = `${shuffledCharacters[0][0]}: ${shuffledCharacters[0][1]}`;
             document.getElementById("character2").innerText = `${shuffledCharacters[1][0]}: ${shuffledCharacters[1][1]}`;
+            document.getElementById("character3").innerText = `${shuffledCharacters[2][0]}: ${shuffledCharacters[2][1]}`;
         }
     </script>
 </head>
 <body>
+    <h1>Created by Panagiotis Domvros 2025 (CC BY-NC) </h1>
     <h1>⚡ Back to the Future ⚡</h1>
-    <p>In this activity, as soon as you click on the button, you will be randomly assigned a scenario about a future historical outcome and the views prominent European historical figures might have had on it if they were alive (based on evidence of their beliefs). Study their opinions and then write your own view, agreeing or disagreeing with them. Make sure you provide arguments.</p>
     <button class="scenario-button" onclick="generateScenario()">🎭 Generate Scenario</button>
     <p id="scenario"></p>
     <p id="character1"></p>
     <p id="character2"></p>
+    <p id="character3"></p>
     <br>
     <a class="answer-button" href="https://docs.google.com/forms/d/e/1FAIpQLScPhob6wnSo_fW6EE9ppbQ-QzWGOdSGi1NDqKczQ9TlglNwUQ/viewform?usp=dialog" target="_blank">
         📝 Write Your Own View
